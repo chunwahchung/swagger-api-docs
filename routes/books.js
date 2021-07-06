@@ -31,10 +31,19 @@ const idLength = 8;
 
 /**
  * @swagger
+ * tags:
+ *   name: Books
+ *   description: The books managing API
+ */
+
+/**
+ * @swagger
  * paths:
  *   /books:
  *     get:
  *       summary: Returns a list of all books
+ *       tags:
+ *         - Books
  *       responses: 
  *         200:
  *           description: The list of books
