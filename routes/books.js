@@ -29,6 +29,22 @@ const idLength = 8;
  *              author: Nassim Nicholas Taleb
  */
 
+/**
+ * @swagger
+ * paths:
+ *   /books:
+ *     get:
+ *       summary: Returns a list of all books
+ *       responses: 
+ *         200:
+ *           description: The list of books
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/Book'
+ */
 router.get("/", (req, res) => {
     const books = req.app.db.get("books");
 
