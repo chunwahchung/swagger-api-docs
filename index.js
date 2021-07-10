@@ -46,4 +46,8 @@ app.use(morgan("dev"));
 
 app.use("/books", booksRouter);
 
+app.get("/", (req, res) => {
+    res.redirect("/api-docs");
+});
+
 app.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
