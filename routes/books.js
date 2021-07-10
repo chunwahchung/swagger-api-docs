@@ -107,7 +107,21 @@ router.get("/:id", (req,res) => {
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Book'
+ *            type: object
+ *            required:
+ *                - title
+ *                - author
+ *            properties:
+ *                title:
+ *                    type: string
+ *                    description: The book title
+ *                author:
+ *                    type: string
+ *                    description: The author of the book
+ *            example:
+ *                title: The Black Swan    
+ *                author: Nassim Nicholas Taleb
+ *               
  *     responses: 
  *       200: 
  *         description: The book was successfully created
@@ -175,6 +189,29 @@ router.put("/:id", (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /books/{id}:
+ *   delete:
+ *     summary: Remove a book by id
+ *     tags: [Books]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         example: d5fE_asz
+ *         description: The book id
+ *     responses:
+ *       200:
+ *         description: The book was successfully deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Book'
+ *       404:
+ *         description: The book was not found
+ */
 router.delete("/:id", (req, res) => {
     req.app.db.get("books").remove({ id: req.params.id }).write();
      
