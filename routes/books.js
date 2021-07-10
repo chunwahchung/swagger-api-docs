@@ -133,6 +133,38 @@ router.post("/", (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /books/{id}:
+ *   put:
+ *     summary:
+ *     tags: [Books]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         example: d5fE_asz
+ *         require: true
+ *         description: The book id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Book'
+ *     responses:
+ *       200:
+ *         description: The book was successfully updated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Book'
+ *       404:
+ *         description: The book was not found
+ *       500: 
+ *         description: Server Error
+ */
 router.put("/:id", (req, res) => {
     try {
         req.app.db.get("books").find({ id: req.params.id }).assign(req.body).write();
