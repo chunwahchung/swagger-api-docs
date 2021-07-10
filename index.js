@@ -44,6 +44,6 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
- app.use("/books", booksRouter);
+app.use("/books", booksRouter);
 
 app.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
