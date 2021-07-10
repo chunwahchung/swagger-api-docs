@@ -17,7 +17,7 @@
   <a href="#resources">Resources</a>
 </p>
 
-<img src="./books-api-screenshot.png"/>
+<img src="./books-api-screenshot.PNG"/>
 
 
 ## Motivation
